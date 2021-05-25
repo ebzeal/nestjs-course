@@ -1,3 +1,4 @@
+import { PaginationQueryDto } from './../common/dto/pagination-query.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { Coffee } from './entities/coffee.entity';
@@ -15,9 +16,12 @@ export class CoffeesService {
     private readonly flavourRepository: Repository<Flavour>,
   ) {}
 
-  findAll() {
+  findAll(paginationQuery: PaginationQueryDto) {
+    const { limit, offset } = paginationQuery;
     return this.coffeeRepository.find({
       relations: ['flavours'],
+      skip: offset,
+      take: limit,
     });
   }
 
