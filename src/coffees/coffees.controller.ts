@@ -29,10 +29,6 @@ export class CoffeesController {
 
   @Post()
   create(@Body() createCoffeeDto: CreateCoffeeDto) {
-    console.log(
-      '🚀 ~ file: coffees.controller.ts ~ line 32 ~ CoffeesController ~ create ~ createCoffeeDto',
-      createCoffeeDto instanceof CreateCoffeeDto,
-    );
     return this.coffeeService.create(createCoffeeDto);
   }
 
