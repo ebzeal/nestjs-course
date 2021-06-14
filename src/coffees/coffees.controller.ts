@@ -12,8 +12,9 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
-import { ApiForbiddenResponse, ApiResponse } from '@nestjs/swagger';
+import { ApiForbiddenResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('coffees')
 @Controller('coffees')
 export class CoffeesController {
   constructor(private readonly coffeeService: CoffeesService) {}
